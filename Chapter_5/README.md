@@ -86,6 +86,31 @@ So technically:
 
 5.4 Reading Chunks
 
+```javascript
+else if (req.url.toLowerCase() === "/submit-details" 
+    && req.method == "POST"){
+        req.on('data', (chunk) => {
+            console.log(chunk);
+            console.log(chunk.toString());
+            console.log(typeof chunk);
+        });
+        
+        fs.writeFileSync('user.txt', "Female");
+        res.statusCode = 302;
+        res.setHeader('Location', '/');
+        return res.end();
+    }
+```
+``` bash
+<Buffer 6e 61 6d 65 3d 53 69 6d 72 61 6e 2b 44 61 6c 76 69 26 67 65 6e 64 65 72 3d 66 65 6d 61 6c 65>
+name=Simran+Dalvi&gender=female
+object
+```
+* chunk is a Buffer object
+* chunk.toString() converts buffer bytes into readable text
+* typeof chunk gives "object" because Buffer is an object in Node.js
+* The hexadecimal values inside the Buffer are raw bytes representing the form data.
+
 5.5 Buffering Chunks
 
 5.6 Parsing Request
