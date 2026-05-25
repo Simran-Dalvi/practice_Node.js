@@ -113,6 +113,99 @@ object
 
 5.5 Buffering Chunks
 
+The chunks that we got are all hexadesimal value. Not readable by humans. o lets park these chunks in buffer and then convert /  parse them into human radable form.
+
+```javascript
+    else if( req.url === "/submit-details" && req.method == "POST"){
+        const body = []; // array to store the chunks
+        req.on('data', chunks =>{
+            console.log(chunks);
+            body.push(chunks);
+        });
+
+        req.on('end', ()=>{
+            const inpt = Buffer.concat(body).toString();
+            console.log(inpt);
+        });
+
+        fs.writeFileSync('user.txt', 'Jasmine');
+        res.statusCode = 302;
+        res.setHeader('Location', "/");
+        return res.end();
+
+    }
+```
+
 5.6 Parsing Request
+```javascript
+else if(req.url ==="/submit-details" && req.method == "POST"){
+        const body =[];
+        req.on('data', (chunks) =>{
+            body.push(chunks);
+        });
+        req.on('end', () => {
+            const inpt = Buffer.concat(body).toString();
+            const params = new URLSearchParams(inpt);
+            const bodyObject = {};
+            for (const [key, val] of params.entries()){
+                bodyObject[key] = val;
+            }
+            console.log(bodyObject);
+        });
+        res.statusCode = 302;
+        res.setHeader('Location', '/');
+        return res.end();
+    }
+```
+
+or just use the object class:
+
+```javascript
+else if(req.url ==="/submit-details" && req.method == "POST"){
+        const body =[];
+        req.on('data', (chunks) =>{
+            body.push(chunks);
+        });
+        req.on('end', () => {
+            const inpt = Buffer.concat(body).toString();
+            const params = new URLSearchParams(inpt);
+            const bodyObject = Object.fromEntries(params);
+            console.log(bodyObject);
+        });
+        res.statusCode = 302;
+        res.setHeader('Location', '/');
+        return res.end();
+    }
+```
+
+noow sychronously write this in the file "user.txt":
+```javascript
+req.on('end', () => {
+            const inpt = Buffer.concat(body).toString();
+            const params = new URLSearchParams(inpt);
+            const bodyObject = Object.fromEntries(params);
+            console.log(bodyObject);
+            fs.writeFileSync('user.txt', JSON.stringify(bodyObject));
+        });
+```
 
 5.7 Using Modules
+app.js handles the server connection and handler.js is the requestHandler function defining the APIs in this server.
+
+`module.exports` exports the required methods for the js files to use. And these files are imported using `require()` method.
+
+```javascript
+// multiple exports using object
+module.exports = {
+    handler : requestHandler,
+    extra : "Extra"
+}
+
+// Setting multiple properties
+module.exports.handler = requestHandler;
+module.exports.extra = "Extra";
+
+// Shortcut
+exports.handler = requestHandler;
+exports.extra = "Extra";
+```
