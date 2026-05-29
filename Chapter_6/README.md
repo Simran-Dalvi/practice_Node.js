@@ -136,3 +136,72 @@ result
 
 
 6.7 Blocking Code
+In the Form page:
+
+```javascript
+    else if (req.url.toLowerCase() === "/submit-details" && req.method == "POST"){
+        const body = [];
+        req.on('data', chunks =>{
+            body.push(chunks);
+        })
+        req.on('end', ()=>{
+            const inpt = Buffer.concat(body).toString();
+            const params = new URLSearchParams(inpt);
+            const objectBody = Object.fromEntries(params);
+
+            fs.writeFile("user.txt", JSON.stringify(objectBody));
+            res.statusCode = 302;
+            res.setHeader('Location', '/');
+            return res.end();
+        });
+    }
+
+    res.setHeader('Content-type', 'text/html');
+    res.write('<html>');
+    res.write('<head>');
+    res.write('<title> Response.js</title>')
+    res.write('</head>');
+    res.write('<body>');
+    res.write('<h1>This is the default page.</h1>');
+    res.write('</body>');
+    res.write('</html>');
+    return res.end();
+
+```
+
+The default page will load before file is updated. This because req.on('end') runs asynchronously. so it will give error
+```bash
+    throw new ERR_HTTP_HEADERS_SENT('set');
+    ^
+
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to t
+he client
+    at ServerResponse.setHeader (node:_http_outgoing:642:11)
+    at IncomingMessage.<anonymous> (D:\Project\practice_Node.js\Chapter_6\
+form\handler.js:47:17)
+    at IncomingMessage.emit (node:events:520:35)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queue
+s:89:21) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+```
+Its trying to set header 'Location' at "/" after already deturning the default page.
+
+To handle this asyncly, write default page in else block:
+
+```javascript
+else{
+    res.setHeader('Content-type', 'text/html');
+    res.write('<html>');
+    res.write('<head>');
+    res.write('<title> Response.js</title>')
+    res.write('</head>');
+    res.write('<body>');
+    res.write('<h1>This is the default page.</h1>');
+    res.write('</body>');
+    res.write('</html>');
+    return res.end();
+}
+```
+
