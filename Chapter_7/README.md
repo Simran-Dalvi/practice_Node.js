@@ -21,9 +21,7 @@ NPM scripts are commands stored inside the scripts section of the package.json f
 
 start is a special npm script. If a start script exists in package.json, it can be executed using:
 
-```javascript
-npm start
-```
+`npm start`
 Developers can also create their own scripts by adding new entries inside the scripts object.
 
 ```javascript
@@ -34,7 +32,7 @@ Developers can also create their own scripts by adding new entries inside the sc
     "greet" : "echo Hello"
   }
 ```
-
+These scripts are executed using npm run.
 ```bash
 Simran@Jasmine MINGW64 /d/Project/practice_Node.js/Chapter_7 (main)
 $ npm run greet
@@ -57,6 +55,8 @@ Server listening at http://localhost:3000
 
 7.4 npm Packages
 
+Packages save development time by providing ready-made solutions for common tasks. Instead of writing complex code yourself, you can install a package and use its functionality directly in your project.
+
 1. npm: Node.js package manager for code sharing.
 2. Package: Reusable code or library
 3. package.json: Defines package metadata and dependencies.
@@ -78,7 +78,33 @@ npm install <package-name>
 
 7.6 Installing nodemon
 
-npm install nodemon --save-dev
+During development, code changes are frequent. Normally, after editing a file, the application must be restarted using node app.js. Nodemon watches project files and automatically restarts the application whenever a change is detected.
+
+`npm install -g nodemon`
+
+After installation, the nodemon command becomes available from any terminal location on the system, as it is installed globally.
+
+`npm install nodemon --save-dev`
+
+The --save-dev flag adds nodemon to the devDependencies section of package.json because it is only needed during development.
+
 
 7.7 Using nodemon
+
+A common practice is to create a script in package.json:
+
+```javascript
+{
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  }
+}
+```
+
+The application can then be started with:
+
+`npm run dev`
+
+This launches nodemon and enables automatic restarts whenever the code changes.
 
