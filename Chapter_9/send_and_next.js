@@ -2,15 +2,15 @@ const express = require('express');
 
 app = express();
 
-app.get("/" ,(req, res, next) =>{
+app.use("/" ,(req, res, next) =>{
     console.log("At the First Middleware", req.url, req.method);
-    res.send("<h1>On the / page</h1>");
-    // next();
+    // res.send("<h1>On the / page</h1>");
+    next();
 })
 
 app.post("/submit-details", (req, res, next) => {
     console.log("At the second middleware", req.url, req.method);
-    res.send("<p>Practising Express.js, Submit - details page</p>")
+    res.send("<p>Practising Express.js</p>")
 })
 
 app.use("/", (req, res, next) => {
