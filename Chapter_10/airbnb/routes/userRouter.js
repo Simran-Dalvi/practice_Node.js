@@ -1,11 +1,10 @@
+const path = require(`path`);
 const express = require('express');
 const userRouter = express.Router();
+const rootdir = require("../utils/pathUtil")
 
 userRouter.get("/", (req, res, next) => {
-    res.send(`
-        <h1>Welcome to airbnb</h1>
-        <a href = "/add-home">Add Home</a>
-        `);
+    res.sendFile(path.join(rootdir, "views", 'home.html'));
 })
 
 module.exports = userRouter
