@@ -1,6 +1,6 @@
-Styling using tailwindcss
+# Styling using tailwindcss
 
-11.1 Serving Static Files
+## 11.1 Serving Static Files
 
 Static files are files that the server sends directly to the browser without any processing. Common examples include:
 
@@ -36,7 +36,7 @@ Express automatically finds the file inside the public folder and sends it to th
 ![image](../images/img32.png)
 
 
-11.2 Introduction to Tailwind CSS
+## 11.2 Introduction to Tailwind CSS
 
 1. Responsive: Mobile-first design for all device sizes.
 2. Utility-First: Provides low-level utility classes for building custom designs.
@@ -46,7 +46,7 @@ Express automatically finds the file inside the public folder and sends it to th
 6. Purge CSS: Removes unused styles in production for smaller files.
 7. Fast Development: Style elements directly in markup for speed.
 
-11.3 Utility Classes
+## 11.3 Utility Classes
 
 Instead of writing custom CSS classes, you build designs by applying small utility classes directly in your HTML.
 
@@ -64,10 +64,73 @@ Equivalent CSS:
 
 Here, text-red-500 is a utility class that sets the text color.
 
-11.4 Installing Extensions
+## 11.4 Installing Extensions
 
 Install `tailwindcss intellisense` extension on vscode
 
-11.5 Including Tailwind CSS
-11.6 Installing Tailwind CSS
+## 11.5 Including Tailwind CSS
+
+There are two common ways to add Tailwind CSS to a project.
+
+1. Play CDN
+
+This is the quickest and simplest way to start using Tailwind.
+
+`<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"><script>`
+
+Add this script tag to your HTML file, and Tailwind utility classes become available immediately.
+
+Advantages:
+
+* No installation required.
+* Great for learning, experimenting, and small projects.
+
+Disadvantages:
+
+* Tailwind is loaded at runtime in the browser.
+* Includes the entire framework, making it relatively large.
+* Not recommended for production applications.
+
+2. Install Tailwind in Your Project
+
+For real-world applications, Tailwind should be installed as part of your development setup using npm.
+
+Advantages:
+
+* Smaller production builds.
+* Better performance.
+* Supports customization and configuration.
+* Integrates well with modern tools such as React, Angular, and Vite.
+
+## 11.6 Installing Tailwind CSS Through CLI
+
+1. Install Tailwind
+
+`npm install -D tailwindcss postcss autoprefixer`
+
+2. Install Tailwind CLI
+
+`npm install -D @tailwindcss/cli`
+
+3. Create an input.css file
+
+create input.css in ./src and add the line
+
+```css
+@import "tailwindcss";
+```
+
+4. Add script in package.json
+
+`"tailwind": "npx @tailwindcss/cli -i ./src/input.css -o ./public/output.css --watch"`
+
+5. start tailwind
+
+`npm run tailwind`
+
 11.7 Using Tailwind CSS
+
+Use tailwind css by running the `npm run tailwind` command in one terminal always.
+
+To add it to html files, simply add it as link:
+
