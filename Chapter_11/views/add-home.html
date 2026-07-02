@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>airbnb - Add Home</title>
+    <link rel="stylesheet" href="/output.css">
 </head>
-<body>
-    <header>
-        <h1>Register Your Home!</h1>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-rose-500 text-2xl font-bold">airbnb</a>
+            <a href="/" class="text-gray-600 hover:text-rose-500 transition"> Back to home</a>
+        </nav>
     </header>
-    <main>
+    <main class="flex items-center justify-center py-20 px-6">
+        <h1>Register Your Home!</h1>
         <form action="/host/add-home" method="POST">
             <input type="text" placeholder="Enter name of House" name="Name">
             <input type="submit">

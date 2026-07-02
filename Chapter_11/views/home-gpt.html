@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb Clone</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Navbar -->
+    <header class="bg-white shadow-sm sticky top-0">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+            <h1 class="text-2xl font-bold text-rose-500">
+                Airbnb
+            </h1>
+
+            <div class="flex gap-6 items-center">
+                <a href="#" class="hover:text-rose-500 transition">
+                    Explore
+                </a>
+
+                <a href="#" class="hover:text-rose-500 transition">
+                    About
+                </a>
+
+                <a href="/host/add-home"
+                   class="bg-rose-500 text-white px-4 py-2 rounded-xl hover:bg-rose-600 transition">
+                    Become a Host
+                </a>
+            </div>
+
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-28">
+
+        <div class="max-w-7xl mx-auto px-6 text-center">
+
+            <h2 class="text-6xl font-bold tracking-tight">
+                Find your next stay
+            </h2>
+
+            <p class="mt-6 text-xl text-gray-600 max-w-2xl mx-auto">
+                Discover unique homes, unforgettable experiences,
+                and amazing places around the world.
+            </p>
+
+            <div class="mt-10 flex justify-center gap-4">
+
+                <button class="bg-rose-500 text-white px-8 py-4 rounded-xl hover:bg-rose-600 transition duration-300 shadow-lg">
+                    Explore Homes
+                </button>
+
+                <a href="/host/add-home"
+                   class="border border-gray-300 px-8 py-4 rounded-xl hover:bg-gray-100 transition duration-300">
+                    Become a Host
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Featured Homes -->
+    <section class="py-20">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <h2 class="text-4xl font-bold text-center">
+                Featured Homes
+            </h2>
+
+            <p class="text-center text-gray-500 mt-3">
+                Hand-picked places loved by travelers.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8 mt-12">
+
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:scale-105 transition duration-300">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6"
+                        alt="Home"
+                        class="h-60 w-full object-cover"
+                    >
+
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold">
+                            Mountain Retreat
+                        </h3>
+
+                        <p class="text-gray-500 mt-1">
+                            Manali, India
+                        </p>
+
+                        <p class="mt-3 font-bold text-lg">
+                            ₹4,999 / night
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:scale-105 transition duration-300">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750"
+                        alt="Home"
+                        class="h-60 w-full object-cover"
+                    >
+
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold">
+                            Luxury Villa
+                        </h3>
+
+                        <p class="text-gray-500 mt-1">
+                            Goa, India
+                        </p>
+
+                        <p class="mt-3 font-bold text-lg">
+                            ₹8,499 / night
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:scale-105 transition duration-300">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1494526585095-c41746248156"
+                        alt="Home"
+                        class="h-60 w-full object-cover"
+                    >
+
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold">
+                            Beach House
+                        </h3>
+
+                        <p class="text-gray-500 mt-1">
+                            Alibaug, India
+                        </p>
+
+                        <p class="mt-3 font-bold text-lg">
+                            ₹6,999 / night
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="bg-white py-20">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <h2 class="text-4xl font-bold text-center">
+                Why Choose Us
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-10 mt-14">
+
+                <div class="text-center">
+                    <div class="text-5xl">
+                        🏠
+                    </div>
+
+                    <h3 class="mt-4 text-xl font-semibold">
+                        Unique Homes
+                    </h3>
+
+                    <p class="mt-2 text-gray-500">
+                        Stay in handpicked properties across the globe.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="text-5xl">
+                        🔒
+                    </div>
+
+                    <h3 class="mt-4 text-xl font-semibold">
+                        Safe Booking
+                    </h3>
+
+                    <p class="mt-2 text-gray-500">
+                        Secure payments and trusted hosts.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="text-5xl">
+                        ⭐
+                    </div>
+
+                    <h3 class="mt-4 text-xl font-semibold">
+                        Top Rated
+                    </h3>
+
+                    <p class="mt-2 text-gray-500">
+                        Millions of reviews from happy guests.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Become Host CTA -->
+    <section class="py-24">
+
+        <div class="max-w-5xl mx-auto px-6">
+
+            <div class="bg-rose-500 rounded-3xl text-center text-white p-14 shadow-xl">
+
+                <h2 class="text-4xl font-bold">
+                    Become a Host
+                </h2>
+
+                <p class="mt-4 text-lg">
+                    Earn extra income by sharing your property with travelers.
+                </p>
+
+                <a href="/host/add-home"
+                   class="inline-block mt-8 bg-white text-rose-500 px-8 py-4 rounded-xl font-semibold hover:scale-105 transition">
+                    Get Started
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-8">
+
+        <div class="max-w-7xl mx-auto px-6 text-center">
+
+            <p>
+                © 2026 Airbnb Clone. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>airbnb - ADD HOME</title>
+    <link rel="stylesheet" href="/output.css">
+</head>
+<body class="bg-white shadow-sm flex flex-col">
+     <header class="shadow-sm sticky top-0">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-rose-500">
+                airbnb
+            </h1>
+            <div class="flex gap-6 items-center">
+                <a href="#" class="hover:text-rose-500 transition">
+                    Explore
+                </a>
+                <a href="#" class="hover:text-rose-500 transition">
+                    About
+                </a>
+                <a href="" class="hover:text-rose-500 transition">
+                    Become a Host
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main class="flex items-center justify-center py-20 px-6">
+        <div class="w-full max-w-2xl">
+            <div class="text-center mb-10">
+                <h1 class="text-4xl font-bold text-gray-900">
+                    Register Your Home
+                </h1>
+            </div>
+            <div class="bg-white rounded-3xl shadow-lg p-8">
+                <form action="/host/add-home" method="POST" class="space-y-6">
+                    <div>
+                        <label for="HouseName" class="block text-sm font-medium text-gray-700 mb-2">
+                            House Name</label>
+                        <input type="text" 
+                        name="Name" 
+                        id="HouseName" 
+                        class="w-full border border-rose-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-rose-500"
+                        placeholder="eg. Mountain View Villa">
+                    </div>
+                    <button type="submit"
+                    class="w-full text-center bg-rose-500 text-white rounded-xl py-4 font-semibold hover:bg-rose-600 hover:font-bold hover:scale-[1.02] transition duration-300">
+                        Register Now
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-gray-900 text-gray-300 py-8 sticky bottom-0">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p>
+                © 2026 Airbnb Clone. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
