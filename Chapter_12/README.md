@@ -10,9 +10,50 @@ Dynamic UI using EJS
 
 12.2 Sharing using Global Varaible
 
-12.3 What is EJS
+
+We are trying to show homes that Host submit to our HomePage.
+
+In hostRouter.js:
+
+```javascript
+const registeredHomes = [];
+
+hostRouter.post("/add-home", (req, res, next) =>{
+    console.log(`Home Registration successful for`,req.body, req.body.houseName);
+    registeredHomes.push({houseName: req.body.houseName});
+    res.sendFile(path.join(rootdir, 'views', 'registered.html'));
+
+})
+
+exports.hostRouter = hostRouter;
+exports.registeredHomes = registeredHomes;
+```
+
+which is used ny our home page using userRouter.js
+```javascript
+const {registeredHomes} = require('./hostRouter');
+
+userRouter.get("/", (req, res, next) => {
+    console.log('Hose name is:', registeredHomes);
+    res.sendFile(path.join(rootdir, 'views', 'home.html'));
+})
+```
+
+12.3 What is EJS (Embedded JavaScript)
+
+* HTML with JS: EJS let's you embed JavaScript code within HTML.
+* Simple Syntax: Uses `<% %>` for control flow and `<%= %>` for output.
+* Easy to Learn: Familiar to those who know HTML and JavaScript.
+* Template Reuse: Supports partials for reusing code snippets.
+* Flexible Logic: Allows full JavaScript expressions in templates. 
 
 12.4 Installing EJS
+
+Install EJS dependencies:
+
+`npm install --save ejs`
+
+
 
 12.5 Using EJS Templates
 

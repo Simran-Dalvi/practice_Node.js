@@ -10,7 +10,7 @@ hostRouter.get("/add-home", (req, res, next) => {
 })
 
 hostRouter.post("/add-home", (req, res, next) => {
-    res.sendFile(path.join(rootdir, 'views', 'homeRegistered.html'));
+    res.sendFile(path.join(rootdir, 'views', 'homeRegistered-gpt.html'));
 })
 
 module.exports = hostRouter;
